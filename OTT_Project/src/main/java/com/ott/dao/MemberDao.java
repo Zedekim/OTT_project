@@ -6,7 +6,7 @@ import com.ott.vo.MemberVO;
 
 public class MemberDao extends DBConn {
 
-	/* 회占쏙옙占쏙옙占쏙옙 */
+	/** 회원 가입*/
 	public int insert(MemberVO vo) {
 		int result = 0;
 		String sql = "insert into ottmember values(?,?,?,?,?,?,?,?,?,?,?,?,?,sysdate,0,null)";
@@ -86,7 +86,7 @@ public class MemberDao extends DBConn {
 		return list;
 	}
 
-	/** �깉�눜DB�뿉�꽌 �븘�씠�뵒媛��졇�샂 **/
+	   /** 탈퇴한 회원 선택*/
 	public ArrayList<MemberVO> dropidselect() {
 
 		// System.out.println("�븿�닔�떎�뻾");
@@ -112,7 +112,7 @@ public class MemberDao extends DBConn {
 		return list;
 	}
 
-	/** �땳�꽕�엫媛��졇�샂 **/
+	   /** 닉네임 선택*/
 	public ArrayList<MemberVO> nickselect() {
 		// System.out.println("�븿�닔�떎�뻾");
 		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
@@ -161,7 +161,7 @@ public class MemberDao extends DBConn {
 		return list;
 	}
 
-	/** �쟾�솕踰덊샇媛��졇�샂 **/
+	/** 핸드폰 번호 선택 **/
 	public ArrayList<MemberVO> hpselect() {
 		// System.out.println("�븿�닔�떎�뻾");
 		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
@@ -210,11 +210,11 @@ public class MemberDao extends DBConn {
 		return list;
 	}
 
-	/* 占싸깍옙占쏙옙 */
+    /** 로그인 결과. 1이면 로그인*/
 	public int getLoginResult(MemberVO vo) {
 		int result = 0;
-		String sql = "select count(*) from ottmember where mem_id=? and mem_pass=?"; // 占쏙옙占싱듸옙,占싻쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占싹몌옙
-																						// 1占싱띰옙占� 占쏙옙占쏙옙占� 占쏙옙占쏙옙 <-->0
+		String sql = "select count(*) from ottmember where mem_id=? and mem_pass=?"; 
+																						
 		getPreparedStatement(sql);
 
 		try {
